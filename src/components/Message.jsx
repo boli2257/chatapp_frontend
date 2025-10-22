@@ -4,11 +4,13 @@ export const Message = ({msg,currentUser}) => {
   const isOwn = msg.uid==currentUser
   
   return (
-    <div className={`message ${isOwn? "own":""}`}>
-      <img src={msg.photoURL} alt={msg.displayName} />
-      <div>
-        <strong>{msg.displayname}</strong>
-        <p>{msg.text}</p>
+    <div className='all'>
+      <div className={`message ${isOwn? "own":""}`}>
+        <img src={msg.photoURL} alt={msg.displayName} />
+        <div className='iras'>
+          <strong>{msg.displayname}</strong>
+          <p>{msg.text}</p>
+        </div>
       </div>
     </div>
   )

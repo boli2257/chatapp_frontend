@@ -33,13 +33,16 @@ useEffect(()=>{
 
 
   return (
-    <div>
+    <div className='all'>
 
-         <form onSubmit={handleSubmit}>
+           
+             <div className='app'>
+        {messages && messages.map(msg=><Message key={msg.id} msg={msg} currentUser={user.uid}/>)}
+    </div>
+    <form onSubmit={handleSubmit}>
             <input type="text" ref={inputref}  placeholder='Írj valamit...'/>
             <button type='submit'>Küldés</button>
-            </form>   
-        {messages && messages.map(msg=><Message key={msg.id} msg={msg} currentUser={user.uid}/>)}
+            </form> 
     </div>
   )
 }

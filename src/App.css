@@ -4,17 +4,90 @@
 }
 .app{
     max-width: 600px;
+    max-height: 800px;
+    overflow: auto;
+    border: 1px solid rgba(136, 136, 136, 0.74);
+    border-radius: 20px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.all{
+    margin: 10px;
 }
 .user-info{
-    background-color: red;
-    color: white;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
 }
 .user-info img{
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
+.all img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
 .message.own{
-    background-color: rgb(255, 0, 0);
+    
     margin-left: auto;
+    float: right;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+}
+.message.own .iras{
+    background-color: hsla(226, 100%, 64%, 0.664);
+}
+.iras{
+    width: 510px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+
+}
+button {
+    border: 3px solid #04AA6D;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+}
+form{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+input{
+    border: 1px solid #81818193;
+    border-radius: 5px;
+    
+}
+input:hover{
+    border: solid 3px rgb(0, 110, 255);
+    transition: 0.3s;
+}
+button:hover {
+    background-color: #04AA6D;
+    color: white;
+    transition: 0.3s;
+}
+.message img{
+    margin-right: 10px;
+}
+.message{
+    margin: 10px;
+    display: flex;  
+    flex-direction: row;
+}
+.iras{
+    background-color: #b9b9b98a;
+    
+}
+@media only screen and (max-width: 1000px) {
+  .iras{
+    width: 500px;
+  }
 }
