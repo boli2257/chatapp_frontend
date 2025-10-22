@@ -1,12 +1,20 @@
 import React from 'react'
 import { useRef } from 'react'
 import { useState } from 'react'
-import { addMessage } from '../../utils'
+import { addMessage, readMessages } from '../../utils'
+import { Message } from './Message'
+import { useEffect } from 'react'
 
 export const Chatroom = ({user}) => {
     const [messages, setMessages] = useState([])
     const inputref = useRef()
     
+useEffect(()=>{
+  const unsubscribe=readMessages(setMessages)
+  return unsubscribe
+},[])
+
+
 
     const handleSubmit=async(e)=>{
         e.preventDefault()
@@ -21,6 +29,9 @@ export const Chatroom = ({user}) => {
         }
         await addMessage(message)
     }
+
+
+
   return (
     <div>
 
@@ -28,7 +39,7 @@ export const Chatroom = ({user}) => {
             <input type="text" ref={inputref}  placeholder='Írj valamit...'/>
             <button type='submit'>Küldés</button>
             </form>   
-
+        {messages && messages.map(msg=><Message key={msg.id} msg={msg} currentUser={user.uid}/>)}
     </div>
   )
 }
